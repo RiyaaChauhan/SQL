@@ -1,4 +1,3 @@
-/* script.js */
 const sqlConcepts = [
     { title: "LIMIT", desc: "Limit the number of rows returned.", query: "SELECT * FROM employees LIMIT 3;" },
     { title: "FETCH", desc: "Retrieve a specified number of rows.", query: "SELECT * FROM employees FETCH FIRST 3 ROWS ONLY;" },
@@ -29,16 +28,21 @@ const sqlConcepts = [
     { title: "ROLLBACK", desc: "Undo changes.", query: "ROLLBACK;" }
 ];
 
-const container = document.getElementById("sqlContainer");
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("sqlContainer");
 
-sqlConcepts.forEach(concept => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-        <div class="icon">🔹</div>
-        <h2>${concept.title}</h2>
-        <p>${concept.desc}</p>
-        <code class="code">${concept.query}</code>
-    `;
-    container.appendChild(card);
+    sqlConcepts.forEach(concept => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+            <div class="icon">🔹</div>
+            <h2>${concept.title}</h2>
+            <p>${concept.desc}</p>
+            <code class="code">${concept.query}</code>
+        `;
+        container.appendChild(card);
+    });
 });
+
+
+
