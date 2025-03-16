@@ -10,39 +10,40 @@
             margin: 0;
             padding: 20px;
             background-color: #f4f4f4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
             text-align: center;
+        }
+        h1 {
             color: #333;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        .box {
+            background: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            display: inline-block;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
+        h2 {
             background: #007BFF;
             color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
         }
         code {
             background: #eee;
             padding: 5px;
-            border-radius: 5px;
             display: block;
-            margin: 5px 0;
+            border-radius: 5px;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -50,77 +51,59 @@
     <div class="container">
         <h1>📌 SQL Cheat Sheet</h1>
         
-        <h2>📝 Querying Data in SQL</h2>
-        <table>
-            <tr>
-                <th>Clause</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-            <tr>
-                <td><b>SELECT</b></td>
-                <td>Retrieve data from tables</td>
-                <td><code>SELECT * FROM employees;</code></td>
-            </tr>
-            <tr>
-                <td><b>DISTINCT</b></td>
-                <td>Select unique values</td>
-                <td><code>SELECT DISTINCT department FROM employees;</code></td>
-            </tr>
-            <tr>
-                <td><b>WHERE</b></td>
-                <td>Filter rows</td>
-                <td><code>SELECT * FROM employees WHERE salary > 55000;</code></td>
-            </tr>
-        </table>
-        
-        <h2>🔍 Filtering Data in SQL</h2>
-        <table>
-            <tr>
-                <th>Operator</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-            <tr>
-                <td><b>LIKE</b></td>
-                <td>Match a pattern</td>
-                <td><code>SELECT * FROM employees WHERE first_name LIKE 'J%';</code></td>
-            </tr>
-            <tr>
-                <td><b>IN</b></td>
-                <td>Match any value in a list</td>
-                <td><code>SELECT * FROM employees WHERE department IN ('HR', 'Finance');</code></td>
-            </tr>
-            <tr>
-                <td><b>BETWEEN</b></td>
-                <td>Match values in a range</td>
-                <td><code>SELECT * FROM employees WHERE salary BETWEEN 50000 AND 60000;</code></td>
-            </tr>
-        </table>
-        
-        <h2>⚡ SQL Operators</h2>
-        <table>
-            <tr>
-                <th>Operator</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-            <tr>
-                <td><b>AND</b></td>
-                <td>Multiple conditions must be met</td>
-                <td><code>SELECT * FROM employees WHERE department = 'IT' AND salary > 60000;</code></td>
-            </tr>
-            <tr>
-                <td><b>OR</b></td>
-                <td>At least one condition must be met</td>
-                <td><code>SELECT * FROM employees WHERE department = 'HR' OR department = 'Finance';</code></td>
-            </tr>
-            <tr>
-                <td><b>NOT</b></td>
-                <td>Negates a condition</td>
-                <td><code>SELECT * FROM employees WHERE NOT department = 'IT';</code></td>
-            </tr>
-        </table>
+        <div class="box">
+            <h2>SELECT</h2>
+            <p>Retrieve Data From One Or More Tables</p>
+            <code>SELECT * FROM employees;</code>
+        </div>
+
+        <div class="box">
+            <h2>DISTINCT</h2>
+            <p>Select Unique Values From A Column</p>
+            <code>SELECT DISTINCT department FROM employees;</code>
+        </div>
+
+        <div class="box">
+            <h2>WHERE</h2>
+            <p>Filter Rows Based On Specified Conditions</p>
+            <code>SELECT * FROM employees WHERE salary > 55000.00;</code>
+        </div>
+
+        <div class="box">
+            <h2>LIMIT</h2>
+            <p>Limit The Number Of Rows Returned In The Result Set</p>
+            <code>SELECT * FROM employees LIMIT 3;</code>
+        </div>
+
+        <div class="box">
+            <h2>FETCH</h2>
+            <p>Retrieve A Specified Number Of Rows From The Result Set</p>
+            <code>SELECT * FROM employees FETCH FIRST 3 ROWS ONLY;</code>
+        </div>
+
+        <div class="box">
+            <h2>LIKE</h2>
+            <p>Match A Pattern In A Column</p>
+            <code>SELECT * FROM employees WHERE first_name LIKE 'J%';</code>
+        </div>
+
+        <div class="box">
+            <h2>IN</h2>
+            <p>Match Any Value In A List</p>
+            <code>SELECT * FROM employees WHERE department IN ('HR', 'Finance');</code>
+        </div>
+
+        <div class="box">
+            <h2>BETWEEN</h2>
+            <p>Match Values Within A Specified Range</p>
+            <code>SELECT * FROM employees WHERE salary BETWEEN 50000 AND 60000;</code>
+        </div>
+
+        <div class="box">
+            <h2>IS NULL</h2>
+            <p>Match NULL Values</p>
+            <code>SELECT * FROM employees WHERE department IS NULL;</code>
+        </div>
     </div>
 </body>
 </html>
